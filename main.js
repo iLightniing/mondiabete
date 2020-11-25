@@ -1,4 +1,7 @@
 var readline = require("readline-sync");
+/**
+ * MAIN
+ */
 
 var choisirTaux    = "Quel est votre taux actuellement ? ";
 var choisirGlucide = "Combien mangez-vous de glucide ? ";
@@ -9,10 +12,19 @@ var glucideMatin = 75;
 var glucideMidi  = 85;
 var glucideSoir  = 110;
 
+/**
+ * BOUCLE
+ */
 while (action !== 0){
-    menu();
+    menu(); // Fonction qui appelle mon Menu
     action = readline.questionInt("Choissisez : ");
-    switch(action){
+    /**
+     * Le SWITCH qui appelle les différents choix + les formule de calcul
+     */
+    switch(action){ 
+        /**
+         * Le CAS 1 => MATIN
+         */
         case 1: 
             taux    = readline.questionInt(choisirTaux);
             glucideSaisie = readline.questionInt(choisirGlucide);
@@ -43,6 +55,9 @@ while (action !== 0){
                 console.log("Votre injection est de : " + resultat)
             }
         break;
+        /**
+         * Le CAS 2 => MIDI
+         */
         case 2: 
             taux    = readline.questionInt(choisirTaux);
             glucideSaisie = readline.questionInt(choisirGlucide);
@@ -73,6 +88,9 @@ while (action !== 0){
                 console.log("Votre injection est de : " + resultat)
             }
         break;
+        /**
+         * Le CAS 3 => SOIR
+         */
         case 3: 
             taux    = readline.questionInt(choisirTaux);
             glucideSaisie = readline.questionInt(choisirGlucide);
@@ -103,12 +121,18 @@ while (action !== 0){
                 console.log("Votre injection est de : " + resultat)
             }
         break;
+        /**
+         * Le CAS 0 => QUITTE L'APP
+         */
         case 0 : return;
         default: console.log("");
         break;
     }
 }
 
+/**
+ * FONCTIONS
+ */
 function menu(){
     var menu  = "1/ Matin (75g)\n";
         menu += "2/ Midi (85g)\n";
